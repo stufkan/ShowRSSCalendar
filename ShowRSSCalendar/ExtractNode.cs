@@ -8,6 +8,11 @@ namespace ShowRSSCalendar
 {
     public static class ExtractNode
     {
+        /// <summary>
+        /// Extracts the episode information out of a episode node from ShowRSS.info
+        /// </summary>
+        /// <param name="node">The node containing the episode</param>
+        /// <returns>An <see cref="Episode"/> with the information from the html node</returns>
         public static Episode Extract(HtmlAgilityPack.HtmlNode node)
         {
 

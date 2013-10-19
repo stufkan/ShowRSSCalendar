@@ -19,7 +19,14 @@ namespace ShowRSSCalendar
             cookies = new CookieContainer();
         }
 
-        private string GetCookie(string url, string login, string scrape)
+        /// <summary>
+        /// Fetches the <see cref="scrape"/> after logging into the <see cref="url"/> with the specified <see cref="postdata"/>
+        /// </summary>
+        /// <param name="url">The URL to login at </param>
+        /// <param name="postdata">The postdata to login with.</param>
+        /// <param name="scrape">The page to scrape.</param>
+        /// <returns>The fetched page</returns>
+        private string GetPage(string url, string postdata, string scrape)
         {
             req = WebRequest.Create(url) as HttpWebRequest;
             CookieContainer cookies = new CookieContainer();
@@ -28,7 +35,7 @@ namespace ShowRSSCalendar
             req.CookieContainer = cookies;
 
             StreamWriter requestWriter = new StreamWriter(req.GetRequestStream());
-            requestWriter.Write(login);
+            requestWriter.Write(postdata);
             requestWriter.Close();
 
             req.GetResponse();
@@ -45,6 +52,13 @@ namespace ShowRSSCalendar
             return response;
         }
 
+
+        /// <summary>
+        /// Gets the episode nodes from the ShowRss.info page with the specified login
+        /// </summary>
+        /// <param name="username">The username.</param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
         public HtmlNodeCollection GetEpisodeNodes(string username, string password)
         {
             string url = @"http://showrss.info/?cs=login";
@@ -52,7 +66,7 @@ namespace ShowRSSCalendar
             string scrape = @"http://showrss.info/?cs=schedule&mode=std&print=std";
 
             HtmlDocument htmldocument = new HtmlDocument();
-            htmldocument.LoadHtml(GetCookie(url, postdata, scrape));
+            htmldocument.LoadHtml(GetPage(url, postdata, scrape));
 
             HtmlNode node = htmldocument.DocumentNode;
 
