@@ -1,0 +1,13 @@
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\Frontend.dll
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\Frontend.pdb
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\obj\Debug\Frontend.dll
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\obj\Debug\Frontend.pdb
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\obj\Debug\Frontend.csprojResolveAssemblyReference.cache
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\DDay.Collections.dll
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\DDay.iCal.dll
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\HtmlAgilityPack.dll
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\ShowRSSCalendar.exe
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\antlr.runtime.dll
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\ShowRSSCalendar.pdb
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\HtmlAgilityPack.pdb
+C:\Users\Stefan\Dropbox\Programmering\Projects\ShowRSSCalendar\Frontend\bin\HtmlAgilityPack.xml
