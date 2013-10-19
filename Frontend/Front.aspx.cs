@@ -24,10 +24,10 @@ namespace Frontend
             if (username == string.Empty || password == string.Empty)
                 return;
             else
-                Button1_Click(this, new EventArgs());
+                WriteCalendar(username,password);
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        private void WriteCalendar(string username, string password)
         {
             ShowRSSCalendar.Login login = new ShowRSSCalendar.Login();
 
@@ -39,12 +39,12 @@ namespace Frontend
             foreach (var item in showtimeline)
             {
                 ExtractNode.Extract(item).CreateEventFromEpisode(ical);
+                Event evt = new Event();
             }
 
             iCalendarSerializer serializer = new iCalendarSerializer();
-            serializer.Serialize(ical, Server.MapPath("~/showRss.ics"));
-
-            Response.WriteFile(Server.MapPath("~/showRss.ics"));
+            Response.Write( serializer.SerializeToString(ical));
+            
         }
     }
 }
