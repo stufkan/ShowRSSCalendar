@@ -14,6 +14,7 @@ namespace ShowRSSCalendar
         string episodeTitle;
         iCalDateTime date;
 
+        
         public Episode(string seriesTitle, string episodeTitle, iCalDateTime date)
         {
             this.seriesTitle = seriesTitle;
@@ -21,6 +22,10 @@ namespace ShowRSSCalendar
             this.date = date;
         }
 
+        /// <summary>
+        /// Appends the episode to an iCalendar calendar
+        /// </summary>
+        /// <param name="ical">The iCalendar to append to</param>
         public void CreateEventFromEpisode(iCalendar ical)
         {
             Event e = ical.Create<Event>();
@@ -30,6 +35,7 @@ namespace ShowRSSCalendar
             e.Description = episodeTitle;
         }
 
+       
         public override string ToString()
         {
             return seriesTitle + " | " + episodeTitle + " | " + date;

@@ -21,9 +21,6 @@ namespace ShowRSSCalendar
 
             var showtimeline = login.GetEpisodeNodes("stufkan", "stufkan");
 
-
-            
-
             iCalendar ical = new iCalendar();
 
             foreach (var item in showtimeline)

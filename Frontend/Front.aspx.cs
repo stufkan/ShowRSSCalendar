@@ -24,7 +24,7 @@ namespace Frontend
             if (username == string.Empty || password == string.Empty)
                 return;
             else
-                WriteCalendar(username,password);
+                WriteCalendar(username, password);
         }
 
         private void WriteCalendar(string username, string password)
@@ -43,8 +43,8 @@ namespace Frontend
             }
 
             iCalendarSerializer serializer = new iCalendarSerializer();
-            Response.Write( serializer.SerializeToString(ical));
-            
+            Response.Write(serializer.SerializeToString(ical));
+
         }
     }
 }
