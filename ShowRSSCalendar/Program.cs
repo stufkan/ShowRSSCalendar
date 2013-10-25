@@ -19,7 +19,7 @@ namespace ShowRSSCalendar
 
             Login login = new Login();
 
-            var showtimeline = login.GetEpisodeNodes("stufkan", "stufkan");
+            var showtimeline = login.GetEpisodeNodes("stufkan", "stufkan", ScheduleTypeEnum.upcoming);
 
             iCalendar ical = new iCalendar();
 

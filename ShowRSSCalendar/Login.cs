@@ -9,6 +9,7 @@ using HtmlAgilityPack;
 
 namespace ShowRSSCalendar
 {
+    
     public class Login
     {
         CookieContainer cookies;
@@ -59,11 +60,11 @@ namespace ShowRSSCalendar
         /// <param name="username">The username.</param>
         /// <param name="password">The password.</param>
         /// <returns></returns>
-        public HtmlNodeCollection GetEpisodeNodes(string username, string password)
+        public HtmlNodeCollection GetEpisodeNodes(string username, string password, ScheduleTypeEnum s)
         {
             string url = @"http://showrss.info/?cs=login";
             string postdata = string.Format("username={0}&password={1}",username,password);
-            string scrape = @"http://showrss.info/?cs=schedule&mode=std&print=std";
+            string scrape = @"http://showrss.info/?cs=schedule&mode=std&print=" + s.ScheduleTypeToString() ;
 
             HtmlDocument htmldocument = new HtmlDocument();
             htmldocument.LoadHtml(GetPage(url, postdata, scrape));
@@ -72,6 +73,8 @@ namespace ShowRSSCalendar
 
             return node.SelectNodes("//div[@id='show_timeline']//div");
         }
-
+        
     }
+
+    
 }

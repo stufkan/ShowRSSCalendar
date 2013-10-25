@@ -11,6 +11,7 @@ using HtmlAgilityPack;
 
 namespace Frontend
 {
+    
     public partial class Front : System.Web.UI.Page
     {
         string username;
@@ -31,12 +32,13 @@ namespace Frontend
         {
             ShowRSSCalendar.Login login = new ShowRSSCalendar.Login();
 
-            var showtimeline = login.GetEpisodeNodes(username, password);
+            var episodes = login.GetEpisodeNodes(username, password, ScheduleTypeEnum.upcoming);
+            episodes.AddRange( login.GetEpisodeNodes(username, password, ScheduleTypeEnum.aired));
 
-
+            
             iCalendar ical = new iCalendar();
 
-            foreach (var item in showtimeline)
+            foreach (var item in episodes)
             {
                 ExtractNode.Extract(item).CreateEventFromEpisode(ical);
                 Event evt = new Event();
