@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,8 +24,7 @@ namespace ShowRSSCalendar
 
             string datestring = node.ParentNode.PreviousSibling.InnerHtml;
             string datestringcrop = datestring.Substring(0, datestring.Length - 1);
-            DateTime date = DateTime.Parse(datestringcrop);
-
+            DateTime date = DateTime.Parse(datestringcrop, CultureInfo.CreateSpecificCulture("en-US"));
 
             return new Episode(seriestitle, episodetitle, date);
         }
