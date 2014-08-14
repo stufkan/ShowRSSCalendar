@@ -13,6 +13,15 @@ namespace FrontendMVC
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(null, "", // Only matches the empty URL (i.e. /)
+       new
+       {
+           controller = "Calendar",
+           action = "Index"
+       });
+
+routes.MapRoute("Create","{controller}", new{ controller="Calendar",action="Index"});
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
