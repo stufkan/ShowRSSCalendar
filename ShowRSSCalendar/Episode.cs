@@ -26,11 +26,14 @@ namespace ShowRSSCalendar
         /// Appends the episode to an iCalendar calendar
         /// </summary>
         /// <param name="ical">The iCalendar to append to</param>
-        public void CreateEventFromEpisode(iCalendar ical)
+        public void CreateEventFromEpisode(iCalendar ical, int offset)
         {
             Event e = ical.Create<Event>();
-            e.Start = date.AddDays(1).AddHours(7); ;
-            e.End = date.AddDays(1).AddHours(8);
+
+            iCalDateTime offsetDate = (iCalDateTime)date.AddHours(offset);
+
+            e.Start = offsetDate;
+            e.End = offsetDate.AddHours(1);
             e.Summary = seriesTitle;
             e.Description = episodeTitle;
         }

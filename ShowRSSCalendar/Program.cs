@@ -25,7 +25,7 @@ namespace ShowRSSCalendar
 
             foreach (var item in showtimeline)
             {
-                ExtractNode.Extract(item).CreateEventFromEpisode(ical);
+                ExtractNode.Extract(item).CreateEventFromEpisode(ical,33);
             }
 
             iCalendarSerializer serializer = new iCalendarSerializer();

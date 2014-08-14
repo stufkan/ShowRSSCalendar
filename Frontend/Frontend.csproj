@@ -85,6 +85,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Properties\PublishProfiles\stufkan.dk - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\stufkan.dk - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">

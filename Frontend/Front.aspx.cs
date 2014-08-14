@@ -16,19 +16,24 @@ namespace Frontend
     {
         string username;
         string password;
+        int offset;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             username = Request.QueryString["username"];
             password = Request.QueryString["password"];
+            bool offsetPresent = int.TryParse(Request.QueryString["offset"], out offset);
+
+            if (!offsetPresent)
+                offset = 33;
 
             if (username == string.Empty || password == string.Empty)
                 return;
             else
-                WriteCalendar(username, password);
+                WriteCalendar(username, password, offset);
         }
 
-        private void WriteCalendar(string username, string password)
+        private void WriteCalendar(string username, string password, int offset)
         {
             ShowRSSCalendar.Login login = new ShowRSSCalendar.Login();
 
@@ -38,10 +43,10 @@ namespace Frontend
 
             iCalendar ical = new iCalendar();
 
-            if (episodes != null) 
+            if (episodes != null)
                 foreach (var item in episodes)
                 {
-                    ExtractNode.Extract(item).CreateEventFromEpisode(ical);
+                    ExtractNode.Extract(item).CreateEventFromEpisode(ical, offset);
                     Event evt = new Event();
                 }
 
